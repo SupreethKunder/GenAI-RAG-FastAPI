@@ -21,6 +21,8 @@ class Settings(BaseSettings):
     AUTH0_DOMAIN: str
     AUTH0_CLIENT_ID: str
     AUTH0_CLIENT_SECRET: str
+    TEST_LOGIN: str
+    TEST_PASSWORD: str
 
     model_config = SettingsConfigDict(
         env_file=".env", extra="ignore", env_file_encoding="utf-8"

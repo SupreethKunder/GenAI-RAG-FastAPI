@@ -1,7 +1,7 @@
 import uuid
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import PlainTextResponse
-from ..core.constants import CSRF_TOKEN_EXPIRY, CSRF_TOKEN_NAME
+from ..core.enums import CSRFConstants
 
 
 class CSRFMiddleware(BaseHTTPMiddleware):
@@ -24,11 +24,14 @@ class CSRFMiddleware(BaseHTTPMiddleware):
         )
 
         token_new_cookie = False
-        token_from_cookie = request.cookies.get(CSRF_TOKEN_NAME, None)
-        token_from_header = request.headers.get(CSRF_TOKEN_NAME, None)
+        token_from_cookie = request.cookies.get(CSRFConstants.CSRF_TOKEN_NAME, None)
+        token_from_header = request.headers.get(CSRFConstants.CSRF_TOKEN_NAME, None)
         if hasattr(request.state, "post"):
-            token_from_post = request.state.post.get(CSRF_TOKEN_NAME, None)
-
+            token_from_post = request.state.post.get(
+                CSRFConstants.CSRF_TOKEN_NAME, None
+            )
+        else:
+            token_from_post = token_from_cookie
         # 🍪 Fetch the cookie only if we're using an appropriate request method (like Django does).
         if request.method not in ("GET", "HEAD", "OPTIONS", "TRACE"):
             if (
@@ -60,12 +63,12 @@ class CSRFMiddleware(BaseHTTPMiddleware):
         # 🍪 Set CSRF cookie on the response.
         if token_new_cookie and token_from_cookie:
             response.set_cookie(
-                CSRF_TOKEN_NAME,
+                CSRFConstants.CSRF_TOKEN_NAME,
                 token_from_cookie,
-                CSRF_TOKEN_EXPIRY,
+                CSRFConstants.CSRF_TOKEN_EXPIRY,
                 path="/",
                 secure=True,
-                domain=".sirpi.co.in",
+                domain="localhost",
                 httponly=True,
                 samesite="strict",
             )

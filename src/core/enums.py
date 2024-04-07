@@ -3,11 +3,11 @@
 import enum
 
 
-class SSEConstants(str, enum.Enum):
-    """Enum based class to set constants for SSE."""
+class CSRFConstants(str, enum.Enum):
+    """Enum based class to set constants for CSRF."""
 
-    STREAM_DELAY = 3
-    RETRY_TIMEOUT = 5000
+    CSRF_TOKEN_NAME = "csrftoken"
+    CSRF_TOKEN_EXPIRY = 5000
 
 
 class RatePeriod(str, enum.Enum):
