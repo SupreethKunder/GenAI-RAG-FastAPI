@@ -1,0 +1,46 @@
+version: 2
+updates:
+# Docker
+- package-ecosystem: "docker"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  allow:
+  - dependency-type: "production"
+  groups:
+    docker-packages:
+      patterns:
+      - "*"
+  commit-message:
+    prefix: ⬆
+
+# GitHub Actions
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  allow:
+  - dependency-type: "production"
+  groups:
+    action-packages:
+      patterns:
+      - "*"
+  commit-message:
+    prefix: ⬆
+
+# Python
+- package-ecosystem: "pip"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  ignore:
+  - dependency-name: "sqlalchemy"
+  - dependency-name: "pytest"
+  allow:
+  - dependency-type: "production"
+  groups:
+    python-packages:
+      patterns:
+      - "*"
+  commit-message:
+    prefix: ⬆
