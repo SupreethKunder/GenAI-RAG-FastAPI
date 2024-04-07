@@ -16,6 +16,7 @@ from .controllers.misc_services import SlidingWindowRateLimiter, Rate
 from .core.enums import RatePeriod
 from .core.exceptions import BackendError
 from .controllers.movies_services import persist_vectors_to_db
+from .middleware.csrf import CSRFMiddleware
 
 description = """
 Application of RAG (GenAI)
@@ -53,9 +54,11 @@ app.add_middleware(
 app.add_middleware(
     RateLimitMiddleware,
     rate_limiter=SlidingWindowRateLimiter(
-        rate=Rate(number=30, period=RatePeriod.MINUTE)
+        rate=Rate(number=60, period=RatePeriod.MINUTE)
     ),
 )
+app.add_middleware(CSRFMiddleware)
+
 
 app.include_router(auth.router)
 app.include_router(movies.router)
