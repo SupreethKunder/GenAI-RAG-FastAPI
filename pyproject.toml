@@ -11,14 +11,14 @@ packages = [{include = "src"}]
 python = "^3.12"
 pymongo = {extras = ["srv"], version = "^4.6.3"}
 pydantic-settings = "^2.2.1"
-pydantic = {extras = ["all"], version = "^2.6.4"}
+pydantic = {extras = ["all"], version = "^2.7.0"}
 fastapi = {extras = ["all"], version = "^0.110.1"}
 redis = "^5.0.3"
 pytest = {extras = ["all"], version = "^8.1.1"}
 pre-commit = "^3.7.0"
 uvicorn = "^0.29.0"
 gunicorn = "^21.2.0"
-ruff = "^0.3.5"
+ruff = "^0.3.7"
 bandit = "^1.7.8"
 tox = "^4.14.2"
 coloredlogs = "^15.0.1"
