@@ -1,6 +1,6 @@
-# GenAI-RAG-FastAPI (E2E)
+# GenAI-SemanticSearch-FastAPI (E2E)
 
-An implementation of Semantic Search with RAG & HuggingFace over movies dataset wrapped as FastAPI
+An implementation of Semantic Search with HuggingFace Transformer over movies dataset wrapped as FastAPI
 
 ### Services Used:
 
