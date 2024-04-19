@@ -12,18 +12,18 @@ python = "^3.12"
 pymongo = {extras = ["srv"], version = "^4.6.3"}
 pydantic-settings = "^2.2.1"
 pydantic = {extras = ["all"], version = "^2.7.0"}
-fastapi = {extras = ["all"], version = "^0.110.1"}
+fastapi = {extras = ["all"], version = "^0.110.2"}
 redis = "^5.0.3"
 pytest = {extras = ["all"], version = "^8.1.1"}
 pre-commit = "^3.7.0"
 uvicorn = "^0.29.0"
-gunicorn = "^21.2.0"
-ruff = "^0.3.7"
+gunicorn = "^22.0.0"
+ruff = "^0.4.1"
 bandit = "^1.7.8"
 tox = "^4.14.2"
 coloredlogs = "^15.0.1"
 wemake-python-styleguide = "^0.19.2"
-black = "^24.3.0"
+black = "^24.4.0"
 flake8 = {extras = ["all"], version = "^7.0.0"}
 mypy = "^1.9.0"
 isort = "^5.13.2"
