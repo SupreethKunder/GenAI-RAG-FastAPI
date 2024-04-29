@@ -1,4 +1,4 @@
-# MovieFinder (E2E)
+# GenAI-MovieFinder (E2E)
 
 An implementation of Semantic Search with HuggingFace Transformer over movies dataset wrapped as FastAPI
 
